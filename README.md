@@ -16,25 +16,30 @@ PS: GPL保证你可以合法忽略以上注意事项但不能保证你不受鄙�
 ##目前使用的地址
 * [hhxyoj](http://www.lzpweb.cn) 
 ##快速安装指南
-
    * 1、安装Ubuntu
    * 2、执行如下命令
 ```shell
         sudo apt-get update
         sudo apt-get install subversion
-        sudo svn co https://github.com/HHXYOJ/hhxyoj/trunk/trunk/install hhxyoj
+        sudo svn co https://github.com/hhyxoj2/hhxyoj/trunk/trunk/install hhxyoj
         cd hhxyoj
 	#非腾讯云 使用下面语句
         sudo bash install-interactive.sh
 	#腾讯云 使用下面语句
 	sudo bash tencent_install-interactive.sh
 ```
-
    * 3、修改配置文件中的数据库密码
         文件位置 /var/www/html/JudgeOnline/include/db_info.inc.php 
    * 4、安装后访问服务器80端口上的web服务JudgeOnline目录
         例如 w3m http://127.0.0.1/JudgeOnline
-
+   * 4、安装后如果访问网页空白
+   
+ 	<pre>
+        判断/etc/nginx/fastcgi_params 文件中是否有下面两行
+       	fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+	fastcgi_param  PATH_INFO          $fastcgi_script_name;
+	如果没有则加入进去
+	</pre>
 ---
 
 ##项目维护成员
